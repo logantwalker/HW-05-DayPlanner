@@ -1,3 +1,19 @@
+.navbar{
+    line-height: 2.0;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.navbar-light .navbar-brand{
+    color:#3c4043;;
+}
+
 #date-icon img{
-    height:35px;
+    padding-right:10%;
+    height:45px;
+}
+
+.nav-link img{
+    height: 15px;
+    padding-left: 2%;
+    
 }

@@ -1,2 +1,3 @@
-import { dateIconRender } from './NavBar.js';
-dateIconRender();
+import { navIconRender, navMonthRender } from './NavBar.js';
+navIconRender();
+navMonthRender();
