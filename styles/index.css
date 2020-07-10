@@ -1,14 +1,23 @@
+.container{
+    margin-left: 0%;
+    margin-right: 0%;
+    max-width:100%;
+}
+.row{
+    width: 100%;
+    margin:0%;
+}
 .navbar{
     line-height: 2.0;
     border-bottom: 1px solid #c0c0c0;
 }
 
 .navbar-light .navbar-brand{
-    color:#3c4043;;
+    color:#696969;;
 }
 
 #date-icon img{
-    padding-right:10%;
+    padding-right:30%;
     height:45px;
 }
 
@@ -16,4 +25,21 @@
     height: 15px;
     padding-left: 2%;
     
+}
+
+#weekday-label{
+    text-align: center;
+    border-left:1px solid #c0c0c0;
+    border-right:1px solid #c0c0c0;
+    color: #696969;
+    font-size: 0.7rem;
+}
+
+.mvDiv{
+    border: 1px solid #c0c0c0;
+    border-top:none;
+}
+#week-day{
+    text-align: center;
+    font-size: 0.8rem;
 }
