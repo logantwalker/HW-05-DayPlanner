@@ -36,7 +36,7 @@ function populateHours(){
        else if(i!==0 && i > 12){
            hour = `${i-12} PM`;
         }
-        let hourEl=`<div id='hourEl' class='row' data-hourVal=${i}>${hour}</div>`;
+        let hourEl=`<div id='hourEl' class='row align-items-center' data-hourVal=${i}>${hour}</div>`;
         hourBlocks.append(hourEl);
     }
 }

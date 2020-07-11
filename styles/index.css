@@ -87,5 +87,7 @@
     overflow-y: auto;
 }
 #hourEl{
+    font-size: 1rem;
     height:10%;
+    border-right: 1px solid #c0c0c0;
 }
