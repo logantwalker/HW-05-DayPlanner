@@ -1,3 +1,11 @@
+#month-view{
+    display: flex;
+}
+#day-view{
+    display: none;
+}
+
+
 .container{
     margin-left: 0%;
     margin-right: 0%;
@@ -42,4 +50,21 @@
 #week-day{
     text-align: center;
     font-size: 0.8rem;
+}
+
+#day-head{
+    align-items: flex-end;
+}
+#add-btn{
+    padding:0%;
+    padding-top: 2%;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+#date-header{
+    padding-left: 0%;
+    padding-top: 2%;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c0c0c0;
 }

@@ -1,5 +1,5 @@
 export function renderDates(){
-    
+    // $("#month-view").css('display','flex');
     monthGrid();
     populateDates();
 }
@@ -32,7 +32,6 @@ function monthGrid() {
 
 function populateDates(){
     let curDate = moment().format('M Y');
-    console.log(curDate);
     curDate = curDate.split(' ');
     let curMonth = curDate[0];
     let curYear = curDate[1];
@@ -46,10 +45,6 @@ function populateDates(){
     let wk3d1 = moment(wk2d1).add(7,'days');
     let wk4d1 = moment(wk3d1).add(7,'days');
     let wk5d1 = moment(wk4d1).add(7,'days');
-
-    console.log(initialDate.format('MM DD YY'))
-    console.log(wk1d1.format('MM DD YY'));
-    
 
     let w1 = $('#w1').children('.mvDiv');
     let w2 = $('#w2').children('.mvDiv');
