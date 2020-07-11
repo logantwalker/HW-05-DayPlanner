@@ -1,8 +1,8 @@
 #month-view{
-    display: flex;
+    display: none;
 }
 #day-view{
-    display: none;
+    display: flex;
 }
 
 
@@ -51,20 +51,41 @@
     text-align: center;
     font-size: 0.8rem;
 }
-
-#day-head{
-    align-items: flex-end;
-}
 #add-btn{
+    position: relative;
+    top:0%;
+    width:fit-content;
     padding:0%;
-    padding-top: 2%;
+    padding-top: 2rem;
     padding-bottom: 1rem;
+    padding-left:1%;
+    padding-right: 1%;
     border-bottom: 1px solid #c0c0c0;
+    border-right: 1px solid #c0c0c0;
 }
 
 #date-header{
-    padding-left: 0%;
+    width:fit-content;
+    padding-left: 1%;
     padding-top: 2%;
     padding-bottom: 1rem;
     border-bottom: 1px solid #c0c0c0;
+}
+
+#dayEl{
+    width:fit-content;
+    margin-left:.2rem;
+    font-size: 1rem;
+}
+#dateEl{
+
+    width:fit-content;
+    font-size: 2.2rem;
+
+}
+#hour-content{
+    overflow-y: auto;
+}
+#hourEl{
+    height:10%;
 }
