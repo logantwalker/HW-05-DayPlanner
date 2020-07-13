@@ -47,10 +47,12 @@
     border: 1px solid #c0c0c0;
     border-top:none;
 }
+
 #week-day{
     text-align: center;
     font-size: 0.8rem;
 }
+
 #add-btn{
     position: relative;
     top:0%;
@@ -61,7 +63,7 @@
     padding-left:1%;
     padding-right: 1%;
     border-bottom: 1px solid #c0c0c0;
-    border-right: 1px solid #c0c0c0;
+    
 }
 
 #date-header{
@@ -77,17 +79,35 @@
     margin-left:.2rem;
     font-size: 1rem;
 }
-#dateEl{
 
+#dateEl{
     width:fit-content;
     font-size: 2.2rem;
+}
 
-}
 #hour-content{
+    height:auto;
     overflow-y: auto;
+    
 }
+
+#hour-blocks{
+    padding:0%;
+}
+#hour-events{
+    padding:0%;
+}
+
 #hourEl{
     font-size: 1rem;
+    color: #696969;
     height:10%;
+    padding-right: 5%;
     border-right: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+#hourBlockContent{
+    height:10%;
+    border-bottom: 1px solid #c0c0c0;
 }

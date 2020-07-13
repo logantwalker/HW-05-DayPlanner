@@ -5,7 +5,7 @@ export function renderDates(){
 }
 
 function monthGrid() {
-    let windowHt = $(window).height()
+    let windowHt = $(window).height();
     let weekHt = windowHt/5.5;
     for(let i=0; i<7; i++){
         let dayW1 = `<div class='col mvDiv' id='week-day' data-weekday='${i}'></div>`;
@@ -114,7 +114,7 @@ function populateDates(){
     }
     //rendering the week5 dates
     for(let i=0; i<7; i++){
-        
+
         if(i === 0){
             let dateEl = wk5d1.format('D');
             w5[0].append(dateEl);
@@ -130,6 +130,5 @@ function populateDates(){
                 w5[i].append(dateEl);
             }
         }
-
     }
 }
