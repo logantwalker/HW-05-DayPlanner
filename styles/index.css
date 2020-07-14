@@ -103,11 +103,26 @@
     color: #696969;
     height:10%;
     padding-right: 5%;
-    border-right: 1px solid #c0c0c0;
-    border-bottom: 1px solid #c0c0c0;
+    border-right: 1px solid #696969;
+    border-bottom: 1px solid #696969;
 }
 
 #hourBlockContent{
     height:10%;
-    border-bottom: 1px solid #c0c0c0;
+    border-bottom: 1px solid #696969;
+}
+
+form{
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 20%;
+    left:35%;
+    right: 35%;
+    margin: 2%;
+    padding: 5%;
+    border: 1px solid #c0c0c0;
+    border-radius: 15px;
+}
+#eventInput{
+    display: none;
 }

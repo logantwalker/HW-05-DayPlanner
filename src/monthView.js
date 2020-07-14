@@ -1,5 +1,4 @@
 export function renderDates(){
-    // $("#month-view").css('display','flex');
     monthGrid();
     populateDates();
 }

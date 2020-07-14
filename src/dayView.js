@@ -37,8 +37,8 @@ function populateHours(){
        else if(i!==0 && i > 12){
            hour = `${i-12} PM`;
         }
-        let hourEl=`<div id='hourEl' class='row align-items-center justify-content-center' data-hourVal=${i}>${hour}</div>`;
-        let blockEl=`<div id='hourBlockContent' class='row align-items-center justify-content-center' data-hourVal=${i}></div>`;
+        let hourEl=`<div id='hourEl' class='row align-items-center justify-content-center ${i}' data-hourVal=${i}>${hour}</div>`;
+        let blockEl=`<div id='hourBlockContent' class='row align-items-center justify-content-center ${i}' data-hourVal=${i}></div>`;
 
         blockEvent.append(blockEl);
         hourBlocks.append(hourEl);
@@ -55,12 +55,15 @@ function hourBlockPos(){
 
 function colorCode(){
     let curHour = moment().hour();
-    let blocks = $('#hour-events').children();
-    for(let i = 0; i < blocks.length; i++){
+    for(let i = 0; i < 24; i++){
         if(i<curHour){
-            let grayedEl = blocks[i];
-            grayedEl.css('background-color','#c0c0c0');
-            
+            $(`#hour-events .${i}`).css('background-color','#c0c0c0');
+        }
+        else if(i === curHour){
+            $(`#hour-events .${i}`).css('border','2px solid #2296F3');
+            $(`#hour-events .${i}`).css('border-left','0px');
+            $(`#hour-blocks .${i}`).css('border','2px solid #2296F3');
+            $(`#hour-blocks .${i}`).css('color','#2296F3');
         }
     }
 }
