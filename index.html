@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link type="text/css" rel="stylesheet" href="./styles/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="./styles/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" ><img src='./styles/Assets/back.png'></a>
+                    <a class="nav-link"><img src='./styles/Assets/back.png'></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"><img src='./styles/Assets/next.png'></a>
@@ -48,16 +48,16 @@
                     </div>
                 </li>
             </ul>
-            <ul class= 'navbar-nav ml-auto'>
+            <ul class='navbar-nav ml-auto'>
                 <li class="nav-item dropdown dropleft">
                     <a class="nav-link dropdown-toggle curView" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Current View
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a id= 'showDayBtn'class="dropdown-item" href="#">Day</a>
-                        <a id= 'showWeekBtn' class="dropdown-item" href="#">Week</a>
-                        <a id= 'showMonthBtn'class="dropdown-item" href="#">Month</a>
+                        <a id='showDayBtn' class="dropdown-item" href="#">Day</a>
+                        <a id='showWeekBtn' class="dropdown-item" href="#">Week</a>
+                        <a id='showMonthBtn' class="dropdown-item" href="#">Month</a>
                         <div class="dropdown-divider"></div>
                     </div>
                 </li>
@@ -66,7 +66,7 @@
         </div>
     </nav>
     <main class='container'>
-        <section id='month-view' class='row'>
+        <!-- <section id='month-view' class='row'>
             <div class='row'>
                 <div id='weekday-label' class='col'>SUN</div>
                 <div id='weekday-label' class='col'>MON</div>
@@ -88,13 +88,11 @@
                 <div id='w5' class='row'>
                 </div>
             </div>
-        </section>
+        </section> -->
+
         <section id='day-view' class='row z-depth-0'>
             <div id='day-head' class='row'>
-                <div class='col-1' id='add-btn'>
-                    <a class="btn-floating btn-large waves-effect waves-light blue z-depth-2"><i id='addBtn'class="material-icons">add</i></a>
-                </div>
-                <div class='col-11' id='date-header'></div>
+                <div class='col-12' id='date-header'></div>
             </div>
             <div id='hour-content' class='row'>
                 <div id='hour-blocks' class='col-1'>
@@ -105,27 +103,39 @@
         </section>
         <section id='eventInput'>
             <div class='row'>
-                <div class='col-5'>
-                    <form class="z-depth-5">
-                        <div class="form-group">
-                          <label for="exampleFormControlInput1"></label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <div class='col-8 col-sm-12'>
+                    <form class="z-depth-5" style="padding: 2%;">
+                        <div class='row justify-content-end'>
+                            <a id='cancelBtn'class='btn-floating btn-small waves-effect waves-light blue'><i style="padding-top: 1px;"
+                                class="material-icons right">cancel</i>
+                            </a>
                         </div>
                         <div class="form-group">
-                          <label for="exampleFormControlSelect1">Example select</label>
-                          <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+                            <label for="eventTitleInput"></label>
+                            <input type="text" class="form-control" id="eventTitleInput"
+                                placeholder="Add Event Title">
+                        </div>
+                        <div class="form-row">
+                            <div class='col'>
+                                <label for="startSelect">Start Time</label>
+                                <select class="form-control startSelect" id="startSelect">
+                                </select>
+                            </div>
+                            <div class='col'>
+                                <label for="endSelect">End Time</label>
+                                <select class="form-control endSelect" id="endSelect">
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
-                          <label for="exampleFormControlTextarea1">Example textarea</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <label for="eventDescription">Event Description</label>
+                            <textarea class="form-control" id="eventDescription" rows="3"></textarea>
                         </div>
-                      </form>
+                        <div class='row justify-content-end'>
+                            <a id='saveBtn' class="waves-effect waves-light btn-floating btn-large btn blue"><i
+                                    class="material-icons right">save</i></a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -139,12 +149,11 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous">
-    </script>
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
 
-    
-    <script type="text/javascript" src="./styles/js/materialize.min.js"></script>
+
+    <script defer type="text/javascript" src="./styles/js/materialize.min.js"></script>
     <script type='module' src='./src/index.js'></script>
 </body>
 

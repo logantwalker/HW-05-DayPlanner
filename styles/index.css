@@ -53,18 +53,6 @@
     font-size: 0.8rem;
 }
 
-#add-btn{
-    position: relative;
-    top:0%;
-    width:fit-content;
-    padding:0%;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    padding-left:1%;
-    padding-right: 1%;
-    border-bottom: 1px solid #c0c0c0;
-    
-}
 
 #date-header{
     width:fit-content;
@@ -86,6 +74,7 @@
 }
 
 #hour-content{
+    position: relative;
     height:auto;
     overflow-y: auto;
     
@@ -115,14 +104,23 @@
 form{
     background-color: #ffffff;
     position: fixed;
+    width:40%;
     bottom: 20%;
-    left:35%;
-    right: 35%;
-    margin: 2%;
+    left:30%;
+    margin: 0%;
     padding: 5%;
     border: 1px solid #c0c0c0;
     border-radius: 15px;
 }
 #eventInput{
     display: none;
+}
+
+.dropdown-content li>span {
+    color: #2296F3;
+}
+
+#eventContainer{
+    position: relative;
+    background-color: #7986CB;
 }

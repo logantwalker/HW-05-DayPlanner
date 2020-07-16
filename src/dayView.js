@@ -6,6 +6,7 @@ export function dayLoader(){
     populateHours();
 }
 
+//renders the current date at the top of the page
 function dayTopBar(curDate){
     const dateHead = $("#date-header");
 
@@ -20,6 +21,7 @@ function dayTopBar(curDate){
     dateHead.append(dateEl);
 }
 
+//adds the hour blocks to the hour-content div
 function populateHours(){
     const hourBlocks = $('#hour-blocks');
     const blockEvent = $("#hour-events")
@@ -47,12 +49,14 @@ function populateHours(){
     colorCode();
 }
 
+//this function sets the #hour-content div to be at the 9am block when loading the page
 function hourBlockPos(){
     let blockHt = $('#hourBlockContent').innerHeight();
     let scrollPos = Math.floor(blockHt*9) + 10;
     $('#hour-content').scrollTop(Math.ceil(scrollPos));
 }
 
+//color coding to blocks show past,present,future
 function colorCode(){
     let curHour = moment().hour();
     for(let i = 0; i < 24; i++){
