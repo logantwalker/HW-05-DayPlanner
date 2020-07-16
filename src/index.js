@@ -6,6 +6,18 @@ navIconRender();
 navMonthRender();
 dayLoader();
 
+let schedule = JSON.parse(localStorage.getItem('schedule'));
+//init function. checking for existing events to render to the page
+init();
+function init(){
+    if(!localStorage.getItem('schedule')){
+        schedule = [];
+        console.log(schedule);
+    }
+    else{
+        console.log(schedule);
+    }
+}
 
 
 //showing the Event Input Form
@@ -99,10 +111,17 @@ class Event{
         this.description = description;
     }
 }
-// $('#saveBtn').click(()=>{
-//     event.preventDefault();
-//     initEventBlock();
-// });
+//capturing event data
+$('#saveBtn').click(()=>{
+    let eventTitle = $("#eventTitleInput").val();
+    let startTime = parseInt($("select.startSelect").children('option:selected').val());
+    let endTime = parseInt($('select.endSelect').children('option:selected').val());
+    let description = $('#eventDescription').val();
+    schedule.push(new Event(eventTitle,startTime,endTime,description));
+    localStorage.setItem('schedule',JSON.stringify(schedule));
+
+});
+
 // $('select.endSelect').change(initEventBlock);
 // function initEventBlock(){
 //     let startTimeVal = parseInt($("select.startSelect").children('option:selected').val());
