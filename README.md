@@ -1,6 +1,7 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
 This is a day planner created with Moment.js, jQuery, jQueryUI, Bootstrap, and MaterializeCSS.
+https://logantwalker.github.io/HW-05-DayPlanner/
 
 ## Day View
 
@@ -17,7 +18,7 @@ When a time block is clicked, the event input form is displayed.
 ## Rendering/Storing Events
 
 ![event render](./styles/Assets/TestEvent.png)
-When the save button is pressed, the event is rendered on the page and stored in local storage. You can create events up to 8hrs in length. Additionally, due to time constraints, you can only enter a combined total of 8hrs worth of events before they start getting out of place. To get the best result rendering an event on the page, please have the chrome inspector closed and please don't try to overlap events.
+When the save button is pressed, the event is rendered on the page and stored in local storage. You can create events up to 8hrs in length. Additionally, due to time constraints, you can only enter a combined total of 8hrs worth of events before they start getting out of place. To get the best result rendering an event on the page, please have the chrome inspector closed and please don't try to overlap events. Setting screen size to 1280x800 will show you exactly what I see.
 
 ## Future Work
 
