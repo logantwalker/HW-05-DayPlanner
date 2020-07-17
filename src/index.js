@@ -6,7 +6,6 @@ navIconRender();
 navMonthRender();
 dayLoader();
 
-localStorage.clear();
 
 let schedule = JSON.parse(localStorage.getItem('schedule'));
 //init function. checking for existing events to render to the page
@@ -18,7 +17,7 @@ function init(){
     }
     else{
         console.log(schedule);
-        loadEventBlocks();
+        renderEventBlocks();
     }
 }
 
@@ -149,9 +148,10 @@ $('#saveBtn').click(()=>{
     localStorage.setItem('schedule',JSON.stringify(schedule));
     $('#eventInput').hide('drop',300);
     init();
+    document.location.reload(false);
 });
 
-function loadEventBlocks(){
+function renderEventBlocks(){
     let booster=0;
     for(let i=0;i<schedule.length;i++){
 
@@ -160,34 +160,22 @@ function loadEventBlocks(){
         let endTimeVal = schedule[i].endTime;
         let eventDesc = schedule[i].description;
 
-        let eventBlkPixelHt = schedule[i].eventBlockHt()*($('#hourBlockContent').innerHeight());
+        let eventBlkPixelHt = (endTimeVal-startTimeVal)*($('#hourBlockContent').innerHeight());
+
         let eventContainer = `<div id='eventContainer${i}' class='eventContainer z-depth-3'>
-                                <div id='eventTitle' class='row'>${eventTitle}: ${schedule[i].startTimeIn12()}:00 - ${schedule[i].endTimeIn12()}:00</div>
+                                <div id='eventTitle' class='row'>${eventTitle}:</div>
                                 <div id='eventDesc' class='row align-items-center'><p>${eventDesc}<p></div>
                              </div>`
-        let eventStartPosition = (24-startTimeVal)*($('#hourBlockContent').innerHeight()+1.1);
-        console.log(eventStartPosition);
+        let eventStartPosition = (24-startTimeVal)*($('#hourBlockContent').innerHeight()+0.5);
         $('#hour-events').append(eventContainer);
         $(`#eventContainer${i}`).css('height',`${eventBlkPixelHt}px`)
-        if(i !== 0){
-            $(`#eventContainer${i}`).css('top',`-${eventStartPosition + booster}px`)
-        }
-        else{
-            $(`#eventContainer${i}`).css('top',`-${eventStartPosition}px`);
-        }
+        
+        $(`#eventContainer${i}`).css('top',`-${eventStartPosition + booster}px`);
+        console.log(booster);
         booster+=eventBlkPixelHt;
     }
 }
 
-
-// function renderEventBlock(startTimeVal,eventBlockHt,eventTitle,eventDesc){
-//     let eventBlkPixelHt = eventBlockHt*($('#hourBlockContent').innerHeight());
-//     let eventContainer = `<div id='eventContainer' class='z-depth-3'></div>`
-//     let eventStartPosition = (24-startTimeVal)*($('#hourBlockContent').innerHeight());
-//     $('#hour-events').append(eventContainer);
-//     $('#eventContainer').css('height',`${eventBlkPixelHt}px`)
-//     $('#eventContainer').css('top',`-${eventStartPosition}px`)
-// }
 
 
 
