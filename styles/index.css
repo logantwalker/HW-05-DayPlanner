@@ -124,6 +124,7 @@ form{
     position: relative;
     background-color: #7986CB;
     border-radius: .25rem;
+    overflow-y: auto;
 }
 
 #eventTitle{

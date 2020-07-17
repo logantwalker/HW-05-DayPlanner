@@ -116,6 +116,28 @@ class Event{
     eventBlockHt(){
         return this.endTime - this.startTime;
     }
+    startTimeIn12(){
+        if(this.startTime > 12){
+            return this.startTime - 12;
+        }
+        else if(this.startTime === 0){
+            return 12;
+        }
+        else{
+            return this.startTime;
+        }
+    }
+    endTimeIn12(){
+        if(this.endTime > 12){
+            return this.endTime - 12;
+        }
+        else if(this.endTime === 0){
+            return 12;
+        }
+        else{
+            return this.endTime;
+        }
+    }
 }
 //capturing event data
 $('#saveBtn').click(()=>{
@@ -140,7 +162,7 @@ function loadEventBlocks(){
 
         let eventBlkPixelHt = schedule[i].eventBlockHt()*($('#hourBlockContent').innerHeight());
         let eventContainer = `<div id='eventContainer${i}' class='eventContainer z-depth-3'>
-                                <div id='eventTitle' class='row'>${eventTitle}: ${startTimeVal}:00 - ${endTimeVal}:00</div>
+                                <div id='eventTitle' class='row'>${eventTitle}: ${schedule[i].startTimeIn12()}:00 - ${schedule[i].endTimeIn12()}:00</div>
                                 <div id='eventDesc' class='row align-items-center'><p>${eventDesc}<p></div>
                              </div>`
         let eventStartPosition = (24-startTimeVal)*($('#hourBlockContent').innerHeight()+1.1);
