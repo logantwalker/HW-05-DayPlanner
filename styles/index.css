@@ -120,7 +120,17 @@ form{
     color: #2296F3;
 }
 
-#eventContainer{
+.eventContainer{
     position: relative;
     background-color: #7986CB;
+    border-radius: .25rem;
+}
+
+#eventTitle{
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(78, 89, 146);
+}
+#eventDesc{
+    font-size: 0.75rem;
 }

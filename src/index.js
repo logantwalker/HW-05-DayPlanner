@@ -6,16 +6,19 @@ navIconRender();
 navMonthRender();
 dayLoader();
 
+localStorage.clear();
+
 let schedule = JSON.parse(localStorage.getItem('schedule'));
 //init function. checking for existing events to render to the page
 init();
 function init(){
+    
     if(!localStorage.getItem('schedule')){
         schedule = [];
-        console.log(schedule);
     }
     else{
         console.log(schedule);
+        loadEventBlocks();
     }
 }
 
@@ -110,6 +113,9 @@ class Event{
         this.endTime = endTime;
         this.description = description;
     }
+    eventBlockHt(){
+        return this.endTime - this.startTime;
+    }
 }
 //capturing event data
 $('#saveBtn').click(()=>{
@@ -119,23 +125,43 @@ $('#saveBtn').click(()=>{
     let description = $('#eventDescription').val();
     schedule.push(new Event(eventTitle,startTime,endTime,description));
     localStorage.setItem('schedule',JSON.stringify(schedule));
-
+    $('#eventInput').hide('drop',300);
+    init();
 });
 
-// $('select.endSelect').change(initEventBlock);
-// function initEventBlock(){
-//     let startTimeVal = parseInt($("select.startSelect").children('option:selected').val());
-//     let endTimeVal = parseInt($('select.endSelect').children('option:selected').val());
-//     let eventBlockHt = endTimeVal - startTimeVal;
-    
-//     renderEventBlock(startTimeVal,eventBlockHt);
-// }
+function loadEventBlocks(){
+    let booster=0;
+    for(let i=0;i<schedule.length;i++){
+
+        let eventTitle = schedule[i].title;
+        let startTimeVal = schedule[i].startTime;
+        let endTimeVal = schedule[i].endTime;
+        let eventDesc = schedule[i].description;
+
+        let eventBlkPixelHt = schedule[i].eventBlockHt()*($('#hourBlockContent').innerHeight());
+        let eventContainer = `<div id='eventContainer${i}' class='eventContainer z-depth-3'>
+                                <div id='eventTitle' class='row'>${eventTitle}: ${startTimeVal}:00 - ${endTimeVal}:00</div>
+                                <div id='eventDesc' class='row align-items-center'><p>${eventDesc}<p></div>
+                             </div>`
+        let eventStartPosition = (24-startTimeVal)*($('#hourBlockContent').innerHeight()+1.1);
+        console.log(eventStartPosition);
+        $('#hour-events').append(eventContainer);
+        $(`#eventContainer${i}`).css('height',`${eventBlkPixelHt}px`)
+        if(i !== 0){
+            $(`#eventContainer${i}`).css('top',`-${eventStartPosition + booster}px`)
+        }
+        else{
+            $(`#eventContainer${i}`).css('top',`-${eventStartPosition}px`);
+        }
+        booster+=eventBlkPixelHt;
+    }
+}
 
 
-// function renderEventBlock(startTimeVal,eventBlockHt){
+// function renderEventBlock(startTimeVal,eventBlockHt,eventTitle,eventDesc){
 //     let eventBlkPixelHt = eventBlockHt*($('#hourBlockContent').innerHeight());
-//     let eventContainer = `<div id='eventContainer' class='row z-depth-3'></div>`
-//     let eventStartPosition = (24*$('#hourBlockContent').innerHeight()) - (startTimeVal)*($('#hourBlockContent').innerHeight());
+//     let eventContainer = `<div id='eventContainer' class='z-depth-3'></div>`
+//     let eventStartPosition = (24-startTimeVal)*($('#hourBlockContent').innerHeight());
 //     $('#hour-events').append(eventContainer);
 //     $('#eventContainer').css('height',`${eventBlkPixelHt}px`)
 //     $('#eventContainer').css('top',`-${eventStartPosition}px`)
