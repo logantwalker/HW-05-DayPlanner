@@ -5,7 +5,9 @@ This is a day planner created with Moment.js, jQuery, jQueryUI, Bootstrap, and M
 ## Day View
 
 ![day view](./styles/Assets/DayView.png)
-When opening the planner, the current day is displayed along with the hours 9:00AM - 5:00PM. You can also scroll to see the rest of the available hours in the day
+When opening the planner, the current day is displayed along with the hours 9:00AM - 5:00PM. You can also scroll to see the rest of the available hours in the day.
+
+Time blocks that are in the past are colored gray. Time blocks in the future are white. The present time block has a blue border.
 
 ## Entering an event
 
